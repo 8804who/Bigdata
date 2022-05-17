@@ -20,10 +20,10 @@ regr_nointercept = linear_model.LinearRegression(fit_intercept=False).fit(x,y)
 logreg = LogisticRegression(fit_intercept=True).fit(x,y)
 
 regr_y_hat = regr.predict(x)
-print("regr:", r2_score(y, regr_y_hat), mean_absolute_error(y,regr_y_hat), mean_squared_error(y, regr_y_hat))
+print("regr:", r2_score(y, regr_y_hat), mean_absolute_error(y,regr_y_hat), mean_squared_error(y, regr_y_hat), mean_squared_error(y, regr_y_hat)**0.5)
 
 regr_nointercept_y_hat = regr_nointercept.predict(x)
-print("regr_nointercept:", r2_score(y, regr_nointercept_y_hat), mean_absolute_error(y,regr_nointercept_y_hat), mean_squared_error(y, regr_nointercept_y_hat))
+print("regr_nointercept:", r2_score(y, regr_nointercept_y_hat), mean_absolute_error(y,regr_nointercept_y_hat), mean_squared_error(y, regr_nointercept_y_hat), mean_squared_error(y, regr_nointercept_y_hat)**0.5)
 
 x_test = np.linspace(0,10,300)
 loss=expit(x_test*logreg.coef_+logreg.intercept_).ravel()
